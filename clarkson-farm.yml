@@ -1,0 +1,73 @@
+StaffInfo:
+    email: auto-farm@bolcuap.com
+    password: strong-password
+FarmInfo:
+    id: 5
+    name: Clarkson's farm
+    user:
+        email: jeremy.clarkson@bolucap.com
+        password: cars
+    boxes:
+      -
+          serial_number: 000-000-001
+          id: 0462cecbde964cc9adf49054f9f8ae46
+          password: bolucap
+          is_active: true
+      -
+          serial_number: 000-000-002
+          id: df4e7d951b4341b3a7ce636aac58326e
+          password: bolucap1
+          is_active: true
+    goats:
+      -
+          earmark: constant
+          sex: F
+          box: 0
+          offset: 0
+          bolus:
+            id: 9256b220b2
+            mode: 1
+      -
+          earmark: 1/5 fall out
+          sex: F
+          box: 0
+          offset: 10
+          bolus:
+            id: 345b805bb8
+            mode: 1
+      -
+          earmark: random fall out (5%)
+          sex: F
+          box: 0
+          offset: 20
+          bolus:
+            id: 65910b49f6
+            mode: 1
+      -
+          earmark: random-healthy
+          sex: F
+          box: 1
+          offset: 30
+          bolus:
+            id: 91cc4b1612
+            mode: 1
+      -
+          earmark: random-fever-1/10
+          sex: F
+          box: 1
+          offset: 40
+          bolus:
+            id: dec0e668b8
+            mode: 1
+
+
+
+
+
+
+
+
+
+
+
+
