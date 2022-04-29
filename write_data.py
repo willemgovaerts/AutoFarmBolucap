@@ -56,7 +56,6 @@ def get_measurement(goat, global_start):
         assert measurement['temperature'] == temp
     else:
         print(f"Earmark not found, ear_mark: {ear_mark}")
-    # print(f"Goat: {ear_mark}\n data:{measurement}")
     return measurement
 
 
@@ -71,7 +70,7 @@ def write_data(measurement, bolus, token):
         ]
     }]
     response = requests.post(BASE_URL + 'measurements/', json=data, headers=headers)
-    print(f"{datetime.now().strftime()}status code: {response.status_code}\n data:{response.content}")
+    print(f"{datetime.now()}: status code: {response.status_code}\n data:{response.content}")
 
 
 def main(filename):
@@ -90,4 +89,5 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    main('clarkson-farm.yml')
+    main('/Users/willemgovaerts/documents/bolucap/autofarm/clarkson-farm.yml')
+
