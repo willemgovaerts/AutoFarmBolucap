@@ -20,7 +20,7 @@ FarmInfo:
           is_active: true
     goats:
       -
-          earmark: constant-henryca
+          earmark: constant
           sex: F
           box: 0
           offset: 0
@@ -28,7 +28,7 @@ FarmInfo:
             id: 92md5pa0b2
             mode: 1
       -
-          earmark: 1/5 fall out-henryca
+          earmark: 1/5 fall out
           sex: F
           box: 0
           offset: 10
@@ -36,7 +36,7 @@ FarmInfo:
             id: 3417d4nbb8
             mode: 1
       -
-          earmark: random fall out (5%)-henryca
+          earmark: random fall out (5%)
           sex: F
           box: 0
           offset: 20
@@ -44,7 +44,7 @@ FarmInfo:
             id: 659100kuho
             mode: 1
       -
-          earmark: random-healthy-henryca
+          earmark: random-healthy
           sex: F
           box: 1
           offset: 30
@@ -52,7 +52,7 @@ FarmInfo:
             id: 91cc41s3e4
             mode: 1
       -
-          earmark: random-fever-1/10-henryca
+          earmark: random-fever-1/10
           sex: F
           box: 1
           offset: 40
