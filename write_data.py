@@ -46,7 +46,7 @@ def get_measurement(goat, global_start):
             "temperature": 39.5
         }
     elif ear_mark == "1/5 fall out":
-        if hours_since_epoch % 5 == 0:
+        if hours_since_epoch % 5 != 0:
             measurement = random_measurement(start)
         else:
             measurement = None

@@ -2,7 +2,7 @@ StaffInfo:
     email: auto-farm@bolcuap.com
     password: strong-password
 FarmInfo:
-    id: 5
+    id: 6
     name: Henryca's farm
     user:
         email: henryca@bolucap.com
@@ -20,7 +20,7 @@ FarmInfo:
           is_active: true
     goats:
       -
-          earmark: constant
+          earmark: constant-henryca
           sex: F
           box: 0
           offset: 0
@@ -28,7 +28,7 @@ FarmInfo:
             id: 92md5pa0b2
             mode: 1
       -
-          earmark: 1/5 fall out
+          earmark: 1/5 fall out-henryca
           sex: F
           box: 0
           offset: 10
@@ -36,7 +36,7 @@ FarmInfo:
             id: 3417d4nbb8
             mode: 1
       -
-          earmark: random fall out (5%)
+          earmark: random fall out (5%)-henryca
           sex: F
           box: 0
           offset: 20
@@ -44,7 +44,7 @@ FarmInfo:
             id: 659100kuho
             mode: 1
       -
-          earmark: random-healthy
+          earmark: random-healthy-henryca
           sex: F
           box: 1
           offset: 30
@@ -52,7 +52,7 @@ FarmInfo:
             id: 91cc41s3e4
             mode: 1
       -
-          earmark: random-fever-1/10
+          earmark: random-fever-1/10-henryca
           sex: F
           box: 1
           offset: 40
