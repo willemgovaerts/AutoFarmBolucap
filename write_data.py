@@ -63,6 +63,7 @@ def get_measurement(goat, global_start):
         assert measurement['temperature'] == temp
     else:
         print(f"Earmark not found, ear_mark: {ear_mark}")
+        return None
     return measurement
 
 
