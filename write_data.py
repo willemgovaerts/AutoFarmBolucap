@@ -58,7 +58,7 @@ def get_measurement(goat, global_start):
     elif "healthy" in ear_mark:
         measurement = random_measurement(start)
     elif "fever-1/10" in ear_mark:
-        temp = random.random() * 2.2 + 37.9
+        temp = random.random() * 3 + 37.5
         measurement = random_measurement(start, temperature=temp)
         assert measurement['temperature'] == temp
     else:
