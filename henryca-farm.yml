@@ -1,0 +1,73 @@
+StaffInfo:
+    email: auto-farm@bolcuap.com
+    password: strong-password
+FarmInfo:
+    id: 5
+    name: Henryca's farm
+    user:
+        email: henryca@bolucap.com
+        password: dirc
+    boxes:
+      -
+          serial_number: 000-000-001
+          id: 04627ecbhe914ccbadf42054f9f8ae46
+          password: bolucap
+          is_active: true
+      -
+          serial_number: 000-000-002
+          id: df4e7d9auv6l41b3a7ce636aac58326e
+          password: bolucap1
+          is_active: true
+    goats:
+      -
+          earmark: constant
+          sex: F
+          box: 0
+          offset: 0
+          bolus:
+            id: 92md5pa0b2
+            mode: 1
+      -
+          earmark: 1/5 fall out
+          sex: F
+          box: 0
+          offset: 10
+          bolus:
+            id: 3417d4nbb8
+            mode: 1
+      -
+          earmark: random fall out (5%)
+          sex: F
+          box: 0
+          offset: 20
+          bolus:
+            id: 659100kuho
+            mode: 1
+      -
+          earmark: random-healthy
+          sex: F
+          box: 1
+          offset: 30
+          bolus:
+            id: 91cc41s3e4
+            mode: 1
+      -
+          earmark: random-fever-1/10
+          sex: F
+          box: 1
+          offset: 40
+          bolus:
+            id: dec0e1a2w3
+            mode: 1
+
+
+
+
+
+
+
+
+
+
+
+
