@@ -1,8 +1,4 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-import json
+from dotenv import load_dotenv
 import os
 
 import yaml
@@ -10,7 +6,11 @@ import requests
 
 from auth import login
 
-BASE_URL = os.environ.get("BASE_URL")
+load_dotenv()
+BASE_URL = os.getenv("BASE_URL")
+if BASE_URL is None:
+    raise KeyError("Please set BASE_URL environment variable")
+
 content_header = {'Content-type': 'application/json'}
 
 
@@ -29,7 +29,7 @@ def read_conf(filename):
 def create_boxes(data, token):
     boxes = data['FarmInfo']['boxes']
     for box in boxes:
-        data = {
+        payload = {
             "account": {
                 "id": box['id'],
                 "password": box['password']
@@ -40,7 +40,7 @@ def create_boxes(data, token):
         }
         headers = {"Authorization": "token " + token}
         headers.update(content_header)
-        response = requests.post(BASE_URL + 'users/box/', json=data, headers=headers)
+        response = requests.post(BASE_URL + 'users/box/', json=payload, headers=headers)
         print(f"status code: {response.status_code}\n data:{response.content}")
     print('\n')
 
@@ -48,7 +48,7 @@ def create_boxes(data, token):
 def create_goats(data, token):
     goats = data['FarmInfo']['goats']
     for goat in goats:
-        data = {
+        payload = {
             "ear_mark": goat['earmark'],
             "sex": goat['sex'],
             "bolus": {
@@ -59,17 +59,19 @@ def create_goats(data, token):
         }
         headers = {"Authorization": "token " + token}
         headers.update(content_header)
-        response = requests.post(BASE_URL + f'goat/{data["FarmInfo"]["id"]}/goat_and_bolus/', json=data, headers=headers)
+        response = requests.post(BASE_URL + f'goat/{data["FarmInfo"]["id"]}/goat_and_bolus/', json=payload, headers=headers)
         print(f"status code: {response.status_code}\n data:{response.content}")
 
 
 if __name__ == '__main__':
-    file_name = os.environ.get("CONF_FILE")
+    file_name = os.getenv("CONF_FILE")
+    if file_name is None:
+        raise KeyError("Please set CONF_FILE environment variable")
     data = read_conf(file_name)
 
     staff_email = data['StaffInfo']['email']
     staff_password = data['StaffInfo']['password']
     staff_token = login(staff_email, staff_password)
-
+    print(data)
     create_boxes(data, staff_token)
     create_goats(data, staff_token)

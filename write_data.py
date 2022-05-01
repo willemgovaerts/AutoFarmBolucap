@@ -3,11 +3,15 @@ from datetime import datetime, timezone, timedelta
 import random
 
 import requests
+from dotenv import load_dotenv
 
 from auth import auth_token
 from initialize import read_conf, content_header
 
-BASE_URL = os.environ.get("BASE_URL")
+load_dotenv()
+BASE_URL = os.getenv("BASE_URL")
+if BASE_URL is None:
+    raise KeyError("Please set BASE_URL environment variable")
 
 
 def random_measurement(time, **kwargs):
@@ -92,5 +96,7 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    file_name = os.environ.get("CONF_FILE")
+    file_name = os.getenv("CONF_FILE")
+    if file_name is None:
+        raise KeyError("Please set CONF_FILE environment variable")
     main(file_name)

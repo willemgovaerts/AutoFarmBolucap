@@ -7,3 +7,5 @@
 ```shell
 30 * * * * /home/willem/autofarm/venv/bin/python /home/willem/autofarm/write_data.py >> /home/willem/autofarm/logs/write_data.log 2>&1
 ```
+
+cat 

@@ -2,8 +2,12 @@ import json
 import os
 
 import requests
+from dotenv import load_dotenv
 
-BASE_URL = os.environ.get("BASE_URL")
+load_dotenv()
+BASE_URL = os.getenv("BASE_URL")
+if BASE_URL is None:
+    raise KeyError("Please set BASE_URL environment variable")
 
 
 def login(username, password):
