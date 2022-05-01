@@ -9,12 +9,12 @@ FarmInfo:
         password: dirc
     boxes:
       -
-          serial_number: 000-000-001
+          serial_number: 000-000-003
           id: 04627ecbhe914ccbadf42054f9f8ae46
           password: bolucap
           is_active: true
       -
-          serial_number: 000-000-002
+          serial_number: 000-000-004
           id: df4e7d9auv6l41b3a7ce636aac58326e
           password: bolucap1
           is_active: true
