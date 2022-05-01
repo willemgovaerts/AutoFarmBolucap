@@ -34,7 +34,7 @@ def get_measurement(goat, global_start):
     hours_since_epoch = int(global_start.timestamp() / 60 / 60)
     start = global_start + timedelta(minutes=goat['offset'])
     ear_mark = goat['earmark']
-    if ear_mark == "constant":
+    if "constant" in ear_mark:
         measurement = {
             "time": start.timestamp(),
             "status": [i % 2 for i in range(15)],
@@ -45,19 +45,19 @@ def get_measurement(goat, global_start):
             "drinking_bouts": 4,
             "temperature": 39.5
         }
-    elif ear_mark == "1/5 fall out":
+    elif "1/5 fall out" in ear_mark:
         if hours_since_epoch % 5 != 0:
             measurement = random_measurement(start)
         else:
             measurement = None
-    elif ear_mark == "random fall out (5%)":
+    elif "fall out (5%)" in ear_mark:
         if random.random() >= 0.05:
             measurement = random_measurement(start)
         else:
             measurement = None
-    elif ear_mark == "random-healthy":
+    elif "healthy" in ear_mark:
         measurement = random_measurement(start)
-    elif ear_mark == "random-fever-1/10":
+    elif "fever-1/10" in ear_mark:
         temp = random.random() * 2.2 + 37.9
         measurement = random_measurement(start, temperature=temp)
         assert measurement['temperature'] == temp
