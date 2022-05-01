@@ -3,13 +3,14 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 import json
+import os
 
 import yaml
 import requests
 
 from auth import login
 
-BASE_URL = "http://localhost:8080/"
+BASE_URL = os.environ.get("BASE_URL")
 content_header = {'Content-type': 'application/json'}
 
 
@@ -62,16 +63,13 @@ def create_goats(data, token):
         print(f"status code: {response.status_code}\n data:{response.content}")
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    data = read_conf('/Users/willemgovaerts/documents/bolucap/autofarm/clarkson-farm.yml')
+    file_name = os.environ.get("CONF_FILE")
+    data = read_conf(file_name)
+
     staff_email = data['StaffInfo']['email']
     staff_password = data['StaffInfo']['password']
     staff_token = login(staff_email, staff_password)
 
     create_boxes(data, staff_token)
     create_goats(data, staff_token)
-
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/

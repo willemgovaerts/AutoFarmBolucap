@@ -1,8 +1,9 @@
 import json
+import os
 
 import requests
 
-BASE_URL = "http://localhost:8080/"
+BASE_URL = os.environ.get("BASE_URL")
 
 
 def login(username, password):

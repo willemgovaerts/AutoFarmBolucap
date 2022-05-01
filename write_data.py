@@ -1,10 +1,13 @@
+import os
 from datetime import datetime, timezone, timedelta
 import random
 
 import requests
 
 from auth import auth_token
-from initialize import read_conf, content_header, BASE_URL
+from initialize import read_conf, content_header
+
+BASE_URL = os.environ.get("BASE_URL")
 
 
 def random_measurement(time, **kwargs):
@@ -89,5 +92,5 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    main('/Users/willemgovaerts/documents/bolucap/autofarm/clarkson-farm.yml')
-
+    file_name = os.environ.get("CONF_FILE")
+    main(file_name)
