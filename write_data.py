@@ -1,3 +1,4 @@
+import json
 import os
 from datetime import datetime, timezone, timedelta
 import random
@@ -62,8 +63,7 @@ def get_measurement(goat, global_start):
         measurement = random_measurement(start, temperature=temp)
         assert measurement['temperature'] == temp
     else:
-        print(f"Earmark not found, ear_mark: {ear_mark}")
-        return None
+        measurement = random_measurement(start)
     return measurement
 
 
@@ -94,6 +94,14 @@ def main(filename):
             continue
         box_token = box_tokens[goat['box']]
         write_data(measurement, goat['bolus']['id'], box_token)
+    goat_mapping = json.load(open('goat_mapping.json'))
+    print(data)
+    for i in range(1,46):
+        measurement = get_measurement(f"goat {i}", global_start)
+        if measurement is None:
+            continue
+        box_token = box_tokens[0]
+        write_data(measurement, goat_mapping[goat], box_token)
 
 
 if __name__ == '__main__':
