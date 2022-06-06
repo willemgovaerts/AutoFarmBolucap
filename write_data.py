@@ -66,6 +66,12 @@ def get_measurement(goat, global_start):
         measurement = random_measurement(start)
     return measurement
 
+def get_measurement_simple(goat, global_start):
+    hours_since_epoch = int(global_start.timestamp() / 60 / 60)
+    start = global_start
+    return random_measurement(start)
+
+
 
 def write_data(measurement, bolus, token):
     headers = {"Authorization": "token " + token}
@@ -94,10 +100,11 @@ def main(filename):
             continue
         box_token = box_tokens[goat['box']]
         write_data(measurement, goat['bolus']['id'], box_token)
-    goat_mapping = json.load(open('goat_mapping.json'))
-    print(data)
+    filename = os.getenv("MAPPING_FILE")
+    goat_mapping = json.load(open(filename))
+    print(goat_mapping)
     for i in range(1,46):
-        measurement = get_measurement(f"goat {i}", global_start)
+        measurement = get_measurement_simple(f"goat {i}", global_start)
         if measurement is None:
             continue
         box_token = box_tokens[0]
