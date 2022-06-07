@@ -102,7 +102,7 @@ def main(filename):
         write_data(measurement, goat['bolus']['id'], box_token)
     filename = os.getenv("MAPPING_FILE")
     goat_mapping = json.load(open(filename))
-    print(goat_mapping)
+
     for i in range(1,46):
         measurement = get_measurement_simple(f"goat {i}", global_start)
         if measurement is None:
