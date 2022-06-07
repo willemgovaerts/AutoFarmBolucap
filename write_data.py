@@ -108,7 +108,7 @@ def main(filename):
         if measurement is None:
             continue
         box_token = box_tokens[0]
-        write_data(measurement, goat_mapping[goat], box_token)
+        write_data(measurement, goat_mapping[f"goat {i}"], box_token)
 
 
 if __name__ == '__main__':
